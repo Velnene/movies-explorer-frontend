@@ -1,0 +1,11 @@
+.app {
+  min-height: 100vh;
+  max-width: 100%;
+  background-color: #202020;
+  align-items: center;
+}
+
+.app__container {
+  max-width: 1280px;
+  margin: 0 auto;
+}

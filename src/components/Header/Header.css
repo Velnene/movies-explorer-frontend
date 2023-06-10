@@ -1,0 +1,33 @@
+.header {
+  min-height: 74px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+}
+
+.header__logo {
+  min-height: 38px;
+  min-width: 38px;
+}
+
+.header__profile {
+    display: flex;
+    align-items: center;
+}
+
+.header__navigation{
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.header__navigation-button{
+  color: white;
+  text-decoration: none;
+}
+
+.header__navigation-button:nth-last-of-type(1){
+  margin-left: 16px;
+}
