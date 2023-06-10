@@ -1,5 +1,7 @@
 import './App.css';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'
+
 import { Context } from '../../context/CurrentUserContext';
 import Main from '../Main/Main';
 import Header from '../Header/Header';
@@ -7,14 +9,15 @@ import Header from '../Header/Header';
 function App() {
 
   const navigate = useNavigate();
-
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (<Context.Provider >
     <div className='app'>
       <div className='app__container'>
         <Routes>
           <Route path='/' element={<>
-            <Header />
+            <Header
+              loggedIn={loggedIn} />
             <Main />
           </>} />
           <Route path='/movies' element={<></>} />
