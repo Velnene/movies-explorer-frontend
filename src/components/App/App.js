@@ -1,14 +1,19 @@
 import './App.css';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import React, { useState } from 'react'
 
 import { Context } from '../../context/CurrentUserContext';
 import Main from '../Main/Main';
 import Header from '../Header/Header';
+import Promo from '../Promo/Promo';
+import AboutProject from '../AboutProject/AboutProject';
+import Techs from '../Techs/Techs';
+import AboutMe from '../AboutMe/AboutMe';
+import Portfolio from '../Portfolio/Portfolio'
+import Footer from '../Footer/Footer'
 
 function App() {
 
-  const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
 
   return (<Context.Provider >
@@ -18,6 +23,12 @@ function App() {
           <Route path='/' element={<>
             <Header
               loggedIn={loggedIn} />
+            <Promo />
+            <AboutProject />
+            <Techs />
+            <AboutMe />
+            <Portfolio />
+            <Footer/>
             <Main />
           </>} />
           <Route path='/movies' element={<></>} />

@@ -1,11 +1,13 @@
 .header {
   min-height: 74px;
-  width: 100%;
+  max-width: 1280px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   color: white;
+  margin: 0 auto;
+  padding: 0 70px;
 }
 
 .header__logo {

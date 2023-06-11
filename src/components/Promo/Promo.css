@@ -1,0 +1,22 @@
+.promo {
+  margin: 20px auto 0;
+  align-items: center;
+  background: #272727;
+  border-radius: 10px;
+  max-width: 1200px;
+  min-height: 493px;
+  position: relative;
+}
+
+.promo__text {
+  padding-top: 160px;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  max-width: 730px;
+  color: white;
+  display: block;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto 151px;
+}
