@@ -10,12 +10,10 @@ function AboutProject() {
         <li className='about-project__info-item'>Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.</li>
         <li className='about-project__info-item'>У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.</li>
       </ul>
-      <ul className='about-project__timing'>
-        <li className='about-project__timing-item'>1 неделя</li>
-        <li className='about-project__timing-item'>4 недели</li>
-        <li className='about-project__timing-item'>Back-end</li>
-        <li className='about-project__timing-item'>Front-end</li>
-      </ul>
+      <div className='about-project__timing'>
+        <span className='about-project__timing-item'>1 неделя</span>
+        <span className='about-project__timing-item'>4 недели</span>
+      </div>
     </div>
   )
 }

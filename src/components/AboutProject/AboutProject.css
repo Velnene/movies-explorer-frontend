@@ -1,12 +1,13 @@
 .about-project {
   max-height: 608px;
-  padding: 110px 70px;
+  padding: 110px 70px 141px;
   color: white;
   margin: 0 auto;
 }
 
 .about-project__text {
   margin: 0;
+  height: 27px;
   padding-bottom: 23px;
   border-bottom: solid 1px white;
 }
@@ -35,63 +36,70 @@
 }
 
 .about-project__info-item:nth-last-of-type(2) {
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .about-project__info-item:nth-last-of-type(4) {
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  margin: 0 20px 0;
-  margin-right: 20px;
+  margin: 0 40px 0 0;
 }
 
 .about-project__timing {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  justify-content: center;
   padding: 0;
   margin: 0;
+  display: flex;
 }
 
 .about-project__timing-item {
+  position: relative;
   font-size: 14px;
   line-height: 17px;
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
+  margin: 0;
 }
 
-.about-project__timing-item:nth-last-of-type(4) {
+.about-project__timing-item:nth-last-of-type(2) {
   font-weight: 400;
   height: 36px;
-  width: 100%;
-  width: 228px;
+  max-width: 228px;
   color: black;
   background: #3DDC84;
 }
 
-.about-project__timing-item:nth-last-of-type(3) {
+.about-project__timing-item:nth-last-of-type(1) {
   font-weight: 400;
   height: 36px;
-  width: 100%;
-  max-width: 913px;
+  max-width: 912px;
   background: #303030;
 }
 
-.about-project__timing-item:nth-last-of-type(2) {
+.about-project__timing-item:nth-last-of-type(1)::after {
   font-weight: 500;
-  width: 100%;
-  width: 228px;
+  font-size: 14px;
+  line-height: 17px;
+  position: absolute;
+  content: 'Front-end';
+  bottom: -41px;
+  left: 53%;
+  transform: translate(-50%, -50%);
   color: #8B8B8B;
-  margin-top: 14px;
+  min-width: 120px;
 }
 
-.about-project__timing-item:nth-last-of-type(1) {
+.about-project__timing-item:nth-last-of-type(2)::after {
   font-weight: 500;
-  width: 100%;
-  max-width: 913px;
+  font-size: 14px;
+  line-height: 17px;
+  position: absolute;
+  content: 'Back-end';
+  bottom: -41px;
+  left: 63%;
+  transform: translate(-50%, -50%);
   color: #8B8B8B;
-  margin-top: 14px;
+  min-width: 120px;
 }
