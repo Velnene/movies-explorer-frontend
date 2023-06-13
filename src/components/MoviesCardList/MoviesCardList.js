@@ -2,6 +2,7 @@ import './MoviesCardList.css'
 import React, { useState, useEffect } from 'react'
 import api from '../../utils/api';
 import MoviesCard from '../MoviesCard/MoviesCard'
+import ButtonMore from '../ButtonMore/ButtonMore';
 
 function MoviesCardList() {
 
@@ -16,17 +17,17 @@ function MoviesCardList() {
       });
   }, [])
 
-
-
-
   return (
-    <section className='movies-card-list'>
-      {films.map((film) => (
-        <MoviesCard
-          film={film}
-          key={film.filmId} />
-      ))}
-    </section>
+    <>
+      <section className='movies-card-list'>
+        {films.map((film) => (
+          <MoviesCard
+            film={film}
+            key={film.filmId} />
+        ))}
+      </section>
+      <ButtonMore />
+    </>
   )
 }
 

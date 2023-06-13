@@ -48,3 +48,10 @@
   right: 14px;
   top: 19px;
 }
+
+.movies__button-save_active {
+  background: #3DDC84;
+  background-image: url('../../images/button-save-active.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}

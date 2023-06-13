@@ -37,6 +37,9 @@
   color: white;
   text-decoration: none;
   margin: 0 20px 0 0;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
 }
 
 .footer__link:nth-last-of-type(1) {
