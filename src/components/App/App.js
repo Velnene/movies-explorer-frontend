@@ -12,6 +12,7 @@ import AboutMe from '../AboutMe/AboutMe';
 import Portfolio from '../Portfolio/Portfolio'
 import Footer from '../Footer/Footer'
 import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
   const [value, setValue] = useState(false);
@@ -36,7 +37,12 @@ function App() {
             handleToggle={() => setValue(!value)}
           />
         </>} />
-        <Route path='/saved-movies' element={<></>} />
+        <Route path='/saved-movies' element={<>
+          <SavedMovies
+            isOn={value}
+            handleToggle={() => setValue(!value)}
+          />
+        </>} />
         <Route path='/profile' element={<></>} />
         <Route path='/signin' element={<></>} />
         <Route path='/signup' element={<></>} />

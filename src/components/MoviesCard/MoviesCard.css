@@ -55,3 +55,7 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.movies__button-delete-movie {
+  background-image: url('../../images/delete-movie.svg');
+}
