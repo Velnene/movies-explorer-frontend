@@ -13,43 +13,50 @@ import Portfolio from '../Portfolio/Portfolio'
 import Footer from '../Footer/Footer'
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import Profile from '../Profile/Profile';
 
 function App() {
   const [value, setValue] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
+  const [currentUser, setUserInfo] = useState({});
 
-  return (<Context.Provider >
-    <div className='app'>
-      <Header
-        loggedIn={loggedIn} />
-      <Routes>
-        <Route path='/' element={<>
-          <Promo />
-          <AboutProject />
-          <Techs />
-          <AboutMe />
-          <Portfolio />
-          <Main />
-        </>} />
-        <Route path='/movies' element={<>
-          <Movies
-            isOn={value}
-            handleToggle={() => setValue(!value)}
-          />
-        </>} />
-        <Route path='/saved-movies' element={<>
-          <SavedMovies
-            isOn={value}
-            handleToggle={() => setValue(!value)}
-          />
-        </>} />
-        <Route path='/profile' element={<></>} />
-        <Route path='/signin' element={<></>} />
-        <Route path='/signup' element={<></>} />
-      </Routes>
-      <Footer />
-    </div>
-  </Context.Provider >
+
+  return (
+    <Context.Provider value={currentUser} >
+      <div className='app'>
+        <Header
+          loggedIn={loggedIn} />
+        <Routes>
+          <Route path='/' element={<>
+            <Promo />
+            <AboutProject />
+            <Techs />
+            <AboutMe />
+            <Portfolio />
+            <Footer />
+          </>} />
+          <Route path='/movies' element={<>
+            <Movies
+              isOn={value}
+              handleToggle={() => setValue(!value)}
+            />
+            <Footer />
+          </>} />
+          <Route path='/saved-movies' element={<>
+            <SavedMovies
+              isOn={value}
+              handleToggle={() => setValue(!value)}
+            />
+            <Footer />
+          </>} />
+          <Route path='/profile' element={<>
+            <Profile />
+          </>} />
+          <Route path='/signin' element={<></>} />
+          <Route path='/signup' element={<></>} />
+        </Routes>
+      </div>
+    </Context.Provider >
   );
 }
 
