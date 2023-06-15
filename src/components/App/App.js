@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import React, { useState } from 'react'
 import { Context } from '../../context/CurrentUserContext';
 
-import Main from '../Main/Main';
 import Header from '../Header/Header';
 import Promo from '../Promo/Promo';
 import AboutProject from '../AboutProject/AboutProject';
@@ -14,6 +13,8 @@ import Footer from '../Footer/Footer'
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
+import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 function App() {
   const [value, setValue] = useState(false);
@@ -24,10 +25,10 @@ function App() {
   return (
     <Context.Provider value={currentUser} >
       <div className='app'>
-        <Header
-          loggedIn={loggedIn} />
         <Routes>
           <Route path='/' element={<>
+            <Header
+              loggedIn={loggedIn} />
             <Promo />
             <AboutProject />
             <Techs />
@@ -36,6 +37,8 @@ function App() {
             <Footer />
           </>} />
           <Route path='/movies' element={<>
+            <Header
+              loggedIn={loggedIn} />
             <Movies
               isOn={value}
               handleToggle={() => setValue(!value)}
@@ -43,6 +46,8 @@ function App() {
             <Footer />
           </>} />
           <Route path='/saved-movies' element={<>
+            <Header
+              loggedIn={loggedIn} />
             <SavedMovies
               isOn={value}
               handleToggle={() => setValue(!value)}
@@ -50,10 +55,16 @@ function App() {
             <Footer />
           </>} />
           <Route path='/profile' element={<>
+            <Header
+              loggedIn={loggedIn} />
             <Profile />
           </>} />
-          <Route path='/signin' element={<></>} />
-          <Route path='/signup' element={<></>} />
+          <Route path='/signin' element={<>
+            <Register />
+          </>} />
+          <Route path='/signup' element={<>
+          <Login/>
+          </>} />
         </Routes>
       </div>
     </Context.Provider >
