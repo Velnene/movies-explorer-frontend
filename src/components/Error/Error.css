@@ -1,0 +1,31 @@
+.error {
+  display: flex;
+  flex-direction: column;
+}
+
+.error__status {
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 169px;
+  color: white;
+  text-align: center;
+  margin: 246px auto 5px;
+}
+
+.error__message {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: white;
+  text-align: center;
+}
+
+.error__button-back {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #4285F4;
+  text-align: center;
+  margin: 186px auto 60px;
+  text-decoration: none;
+}

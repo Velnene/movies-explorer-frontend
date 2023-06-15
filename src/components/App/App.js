@@ -15,12 +15,12 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import Error from '../Error/Error';
 
 function App() {
   const [value, setValue] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
   const [currentUser, setUserInfo] = useState({});
-
 
   return (
     <Context.Provider value={currentUser} >
@@ -63,8 +63,13 @@ function App() {
             <Register />
           </>} />
           <Route path='/signup' element={<>
-          <Login/>
+            <Login />
           </>} />
+          <Route path='*' element={
+            <>
+              <Error />
+            </>
+          } />
         </Routes>
       </div>
     </Context.Provider >
