@@ -12,12 +12,12 @@ function Login() {
           <input defaultValue='pochta@yandex.ru' type='email' className='login__input' required minLength="2" maxLength='40'></input>
         </label>
         <label className='login__lable'>Пароль
-          <input defaultValue='12345678901234' className='login__input' type='password' required minlength='8' maxLength='40'></input>
+          <input defaultValue='' className='login__input' type='password' required minLength='8' maxLength='40'></input>
         </label>
-        <button className='login__button'>Зарегистрироваться</button>
+        <button className='login__button'>Войти</button>
       </form>
-      <span className='login__enter'>Уже зарегистрированы?
-        <a href='/signup' className='login__enter-link'>Войти</a>
+      <span className='login__enter'>Ещё не зарегистрированы?
+        <a href='/signup' className='login__enter-link'>Регистрация</a>
       </span>
     </section>
   )
