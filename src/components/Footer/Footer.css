@@ -45,3 +45,9 @@
 .footer__link:nth-last-of-type(1) {
   margin: 0;
 }
+
+@media screen and (max-width:880px) {
+  .footer {
+      padding: 79px 30px 20px;
+    }
+}

@@ -9,7 +9,12 @@
   margin: 0;
   height: 27px;
   padding-bottom: 23px;
-  border-bottom: solid 1px white;
+  border-bottom: solid 1px #DADADA;
+  ;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
 }
 
 .about-project__info {
@@ -18,13 +23,15 @@
   flex-wrap: wrap;
   padding: 0;
   margin: 70px 0 110px;
+  min-width: 1140px;
 }
 
 .about-project__info-item {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  width: 550px;
+  max-width: 550px;
+  width: 100%;
   margin-top: 26px;
 }
 
@@ -33,6 +40,7 @@
   font-size: 20px;
   line-height: 24px;
   margin-top: 0;
+  letter-spacing: -0.04em;
 }
 
 .about-project__info-item:nth-last-of-type(2) {
@@ -44,6 +52,7 @@
   font-size: 20px;
   line-height: 24px;
   margin: 0 40px 0 0;
+  letter-spacing: -0.04em;
 }
 
 .about-project__timing {
@@ -84,7 +93,7 @@
   line-height: 17px;
   position: absolute;
   content: 'Front-end';
-  bottom: -41px;
+  bottom: -40px;
   left: 53%;
   transform: translate(-50%, -50%);
   color: #8B8B8B;
@@ -97,9 +106,67 @@
   line-height: 17px;
   position: absolute;
   content: 'Back-end';
-  bottom: -41px;
-  left: 63%;
+  bottom: -40px;
+  left: 62%;
   transform: translate(-50%, -50%);
   color: #8B8B8B;
   min-width: 120px;
+}
+
+@media screen and (max-width: 1220px) {
+  .about-project__info {
+    min-width: 668px;
+  }
+
+  .about-project__info-item {
+    max-width: 350px;
+  }
+
+}
+
+@media screen and (max-width: 880px) {
+
+  .about-project__info {
+    margin-bottom: 93PX;
+  }
+
+  .about-project__info-item {
+    max-width: 319px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 22px;
+  }
+
+  .about-project__info-item:nth-last-of-type(2) {
+    margin-right: 30px;
+  }
+
+  .about-project__info-item:nth-last-of-type(4) {
+    margin: 0 30px 0 0;
+  }
+
+  .about-project {
+    padding: 90px 50px 121px;
+  }
+
+  .about-project__timing-item:nth-last-of-type(2) {
+    max-width: 140px;
+  }
+
+  .about-project__timing-item:nth-last-of-type(1) {
+    max-width: 528px;
+  }
+
+  .about-project__timing-item:nth-last-of-type(1)::after {
+    bottom: -40px;
+    left: 55%;
+  }
+
+  .about-project__timing-item:nth-last-of-type(2)::after {
+    content: 'Back-end';
+    bottom: -40px;
+    left: 70%;
+  }
+
 }

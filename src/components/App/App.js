@@ -19,7 +19,7 @@ import Error from '../Error/Error';
 
 function App() {
   const [value, setValue] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setUserInfo] = useState({});
 
   return (
@@ -28,17 +28,17 @@ function App() {
         <Routes>
           <Route path='/' element={<>
             <Header
-              loggedIn={loggedIn} />
+              loggedIn={false} />
             <Promo />
             <AboutProject />
             <Techs />
             <AboutMe />
             <Portfolio />
-            <Footer />
+            <Footer />  
           </>} />
           <Route path='/movies' element={<>
             <Header
-              loggedIn={loggedIn} />
+              loggedIn={true} />
             <Movies
               isOn={value}
               handleToggle={() => setValue(!value)}
@@ -47,7 +47,7 @@ function App() {
           </>} />
           <Route path='/saved-movies' element={<>
             <Header
-              loggedIn={loggedIn} />
+              loggedIn={true} />
             <SavedMovies
               isOn={value}
               handleToggle={() => setValue(!value)}
@@ -56,7 +56,7 @@ function App() {
           </>} />
           <Route path='/profile' element={<>
             <Header
-              loggedIn={loggedIn} />
+              loggedIn={true} />
             <Profile />
           </>} />
           <Route path='/signin' element={<>

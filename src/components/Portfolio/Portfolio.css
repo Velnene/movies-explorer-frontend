@@ -1,6 +1,6 @@
 .portfolio {
   color: white;
-  padding: 0 70px 125px;
+  padding: 0 70px 90px;
 }
 
 .portfolio__title {
@@ -24,6 +24,7 @@
   line-height: 50px;
   display: flex;
   justify-content: space-between;
+  letter-spacing: -0.04em;
 }
 
 .portfolio__item:nth-last-of-type(1) {
@@ -40,4 +41,16 @@
 .portfolio__link-image {
   max-width: 18px;
   margin: 0 7px 11px 0;
+}
+
+@media screen and (max-width: 880px) {
+  .portfolio {
+    padding: 0 50px 55px;
+  }
+
+  .portfolio__item {
+    font-size: 28px;
+    line-height: 50px;
+  }
+
 }
