@@ -16,11 +16,18 @@ import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Error from '../Error/Error';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
 function App() {
   const [value, setValue] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setUserInfo] = useState({});
+  const [burger, openBurger] = useState(false);
+
+  function handleOpenBurger() {
+    console.log('true')
+    openBurger(true)
+  }
 
   return (
     <Context.Provider value={currentUser} >
@@ -34,10 +41,11 @@ function App() {
             <Techs />
             <AboutMe />
             <Portfolio />
-            <Footer />  
+            <Footer />
           </>} />
           <Route path='/movies' element={<>
             <Header
+              handleOpenBurger={handleOpenBurger}
               loggedIn={true} />
             <Movies
               isOn={value}
@@ -47,6 +55,7 @@ function App() {
           </>} />
           <Route path='/saved-movies' element={<>
             <Header
+              handleOpenBurger={handleOpenBurger}
               loggedIn={true} />
             <SavedMovies
               isOn={value}
@@ -71,6 +80,8 @@ function App() {
             </>
           } />
         </Routes>
+        <BurgerMenu
+          burger={burger} />
       </div>
     </Context.Provider >
   );

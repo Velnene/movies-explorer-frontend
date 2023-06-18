@@ -21,3 +21,10 @@
   margin: 0;
   padding: 0;
 }
+
+@media screen and (max-width:880px) {
+  .header-register {
+    padding-top: 232px;
+  }
+
+}

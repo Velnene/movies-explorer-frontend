@@ -13,6 +13,11 @@
   margin-bottom: 9px;
   padding: 0;
   margin-left: 14px;
+  /* Многоточие*/
+  max-width: 250px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
 
 .movies__time {
@@ -58,4 +63,16 @@
 
 .movies__button-delete-movie {
   background-image: url('../../images/delete-movie.svg');
+}
+
+@media screen and (max-width: 880px) {
+  .movies__image {
+    width: 339px;
+    height: 190px;
+  }
+
+  .movie-card {
+    height: 244px;
+  }
+
 }

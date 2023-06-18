@@ -16,3 +16,15 @@
   font-size: 12px;
   line-height: 15px;
 }
+
+@media screen and (max-width: 880px) {
+  .button-more__button {
+    max-width: 708px;
+    padding: 0;
+  }
+
+  .button-more {
+    padding: 80px 30px;
+    margin-bottom: 0;
+  }
+}

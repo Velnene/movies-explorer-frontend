@@ -4,13 +4,22 @@
   row-gap: 30px;
   max-width: 1280px;
   column-gap: 24px;
-  width: 100%;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-.indent{
+.indent {
   height: 140px;
   margin-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .movies-card-list {
+    row-gap: 36px;
+    justify-content: space-between;
+  }
+
 }

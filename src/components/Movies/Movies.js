@@ -10,7 +10,11 @@ function Movies({ isOn, handleToggle }) {
   useEffect(() => {
     api.getFilm()
       .then((res) => {
-        getFilms(res.films.slice(8));
+        if (window.matchMedia('(max-width: 880pxpx)'))
+          getFilms(res.films.slice(12));
+        else {
+          getFilms(res.films.slice(5));
+        }
       }).catch((err) => {
         alert(err);
       });
