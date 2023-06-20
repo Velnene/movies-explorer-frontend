@@ -140,7 +140,17 @@
     line-height: 18px;
   }
 
-  .search-form__stroke{
+  .search-form__stroke {
     margin-top: 55px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .search-form__switch {
+    margin: 44px 198px 0;
+  }
+
+  .search-form__stroke {
+    margin-top: 43px;
   }
 }

@@ -32,10 +32,33 @@
 
 @media screen and (max-width: 880px) {
   .error__status {
-    margin-top: 408px;
+    margin: 408px auto 5px;
   }
 
   .error__button-back {
     margin-top: 184px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .error__status {
+    margin: 329px auto 10px;
+    font-size: 80px;
+    line-height: 97px;
+  }
+
+  .error__message {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .error__button-back {
+    margin: 284px auto 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .error {
+    padding-bottom: 30px;
   }
 }

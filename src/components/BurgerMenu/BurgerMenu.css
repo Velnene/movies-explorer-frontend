@@ -95,6 +95,30 @@
 
 @media screen and (max-height: 420px) {
   .burger-menu__profile {
-    bottom: 20px;
+    bottom: 46px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .burger-menu__container {
+    padding: 0 10px;
+    min-width: 320px;
+    max-width: 100%;
+  }
+
+  .burger-menu__subtitle {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 144px auto 24px;
+  }
+
+  .burger-menu__link {
+    font-size: 18px;
+    line-height: 22px;
+    width: 300px;
+  }
+
+  .burger-menu__link_active {
+    width: 72px;
   }
 }

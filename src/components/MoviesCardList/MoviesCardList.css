@@ -21,5 +21,17 @@
     row-gap: 36px;
     justify-content: space-between;
   }
+}
 
+@media screen and (max-width: 684px) {
+  .movies-card-list {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 644px) {
+  .movies-card-list {
+    justify-content: center;
+    row-gap: 16px;
+  }
 }

@@ -74,5 +74,20 @@
   .movie-card {
     height: 244px;
   }
+}
 
+@media screen and (max-width: 762px) {
+  .movie-card {
+    height: 222px;
+    width: 300px;
+  }
+
+  .movies__image {
+    width: 300px;
+    height: 168px;
+  }
+
+  .movies__name {
+    max-width: 200px;
+  }
 }

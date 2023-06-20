@@ -91,7 +91,28 @@
     padding-bottom: 16px;
   }
 
-  .profile__input-button{
+  .profile__input-button {
     margin-top: 210px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .profile__welcome {
+    margin: 70px auto 80px;
+  }
+
+  .profile__form {
+    max-width: 260px;
+  }
+
+  .profile__exit {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .profile__input-button {
+    margin-top: 379px;
+    font-size: 12px;
+    line-height: 15px;
   }
 }

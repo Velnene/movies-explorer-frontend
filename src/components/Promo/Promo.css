@@ -40,5 +40,16 @@
     max-width: 680px;
     margin-bottom: 314px;
   }
+}
 
+@media screen and (max-width:400px) {
+  .promo__text {
+    padding-top: 220px;
+    font-size: 29px;
+    line-height: 37px;
+  }
+
+  .promo {
+    height: 586px;
+  }
 }

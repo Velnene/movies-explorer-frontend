@@ -95,3 +95,49 @@
     margin-bottom: 91px;
   }
 }
+
+@media screen and (max-width:720px) {
+  .about-me__info {
+    display: grid;
+    grid-template-areas: "image"
+      "name"
+      "profession"
+      "about"
+      "link";
+  }
+
+  .about-me__info-image {
+    grid-area: image;
+    width: 292px;
+    min-height: 352px;
+    margin-bottom: 40px;
+  }
+
+  .about-me {
+    padding: 70px 14px;
+  }
+
+  .about-me__my-name {
+    grid-area: name;
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .about-me__info-title {
+    grid-area: profession;
+    font-size: 11px;
+    line-height: 16px;
+    margin: 20px 0;
+  }
+
+  .about-me__subtitle {
+    grid-area: about;
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 40px;
+  }
+
+  .about-me__my-network {
+    grid-area: link;
+  }
+}

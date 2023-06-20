@@ -26,5 +26,21 @@
   .header-register {
     padding-top: 232px;
   }
+}
+
+@media screen and (max-width: 500px) {
+  .header-register {
+    padding: 56px 0 80px;
+    width: 100%;
+  }
+
+  .header-register__logo {
+    margin: 0 auto 50px;
+  }
+
+  .header-register__welcome {
+    margin: 0 auto;
+  }
+
 
 }

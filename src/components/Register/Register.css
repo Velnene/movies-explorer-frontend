@@ -49,7 +49,6 @@
   margin-top: 10px;
   background: #2F2F2F;
   border-radius: 8px;
-  height: 46px;
   color: white;
   padding: 0 0 0 15px;
   font-weight: 400;
@@ -107,4 +106,29 @@
   line-height: 12px;
   color: #EE3465;
   margin: 10px 0 0;
+}
+
+@media screen and (max-width:500px) {
+  .register__input {
+    width: 260px;
+  }
+
+  .register {
+    padding-bottom: 30px;
+  }
+
+  .register__lable {
+    margin: 0 auto 20px;
+  }
+
+  .register__enter {
+    margin-top: 14px;
+  }
+
+  .register__button {
+    width: 260px;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 157px;
+  }
 }

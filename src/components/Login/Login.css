@@ -1,5 +1,5 @@
-.login{
-display: flex;
+.login {
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -70,4 +70,29 @@ display: flex;
   margin: 0;
   margin-left: 6px;
   text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+  .login__input {
+    width: 260px;
+  }
+
+  .login {
+    padding-bottom: 30px;
+  }
+
+  .login__lable {
+    margin: 0 auto 20px;
+  }
+
+  .login__button {
+    margin-top: 157px;
+    width: 260px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .login__enter {
+    margin-top: 14px;
+  }
 }
