@@ -61,6 +61,7 @@
   margin: 0 0 0 30px;
   background-color: #2BE080;
   border-radius: 3px;
+  padding: 0;
 }
 
 .header__registration {
@@ -101,5 +102,30 @@
     background-position: center;
     margin-right: 2px;
   }
+}
 
+@media screen and (max-width: 500px) {
+  .header {
+    padding: 0 14px;
+  }
+
+  .header__login {
+    min-height: 26px;
+    min-width: 54px;
+    font-size: 10px;
+    line-height: 16px;
+    margin-left: 14PX;
+  }
+
+  .header__registration {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__burger {
+    background-image: url('../../images/burger-mini.svg');
+    width: 30px;
+    height: 30px;
+    margin: 0 5px 2px 0;
+  }
 }

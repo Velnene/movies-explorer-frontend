@@ -131,3 +131,13 @@
     margin: 0;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .techs__name {
+    margin: 0 18px;
+  }
+
+  .techs__items {
+    margin-top: 50px;
+  }
+}

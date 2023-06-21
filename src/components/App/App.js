@@ -25,8 +25,11 @@ function App() {
   const [burger, openBurger] = useState(false);
 
   function handleOpenBurger() {
-    console.log('true')
     openBurger(true)
+  }
+
+  function closeBurger() {
+    openBurger(false)
   }
 
   return (
@@ -81,6 +84,7 @@ function App() {
           } />
         </Routes>
         <BurgerMenu
+          closeBurger={closeBurger}
           burger={burger} />
       </div>
     </Context.Provider >

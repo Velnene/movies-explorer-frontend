@@ -10,15 +10,22 @@ function Movies({ isOn, handleToggle }) {
   useEffect(() => {
     api.getFilm()
       .then((res) => {
-        if (window.matchMedia('(max-width: 880pxpx)'))
+        if (window.matchMedia("(max-width: 600px)").matches) {
+          getFilms(res.films.slice(15));
+        }
+        else if (window.matchMedia("(max-width: 800px)").matches) {
           getFilms(res.films.slice(12));
+        }
+        else if (window.matchMedia("(max-width: 1400px)").matches) {
+          getFilms(res.films.slice(8));
+        }
         else {
-          getFilms(res.films.slice(5));
+          getFilms(res.films);
         }
       }).catch((err) => {
         alert(err);
       });
-  }, [])
+  }, [films])
 
 
   return (

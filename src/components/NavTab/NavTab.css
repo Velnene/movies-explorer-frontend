@@ -7,7 +7,7 @@
   margin: 0 auto;
   align-items: center;
   position: absolute;
-  bottom: 30px;
+  bottom: 10px;
   left: 50%;
   transform: translate(-50%, -50%)
 }
@@ -30,10 +30,15 @@
   margin-right: 0;
 }
 
+@media screen and (max-width: 768px) {
+  .nave-tab {
+    bottom: 12px;
+  }
+}
 
 @media screen and (max-width: 400px) {
   .nave-tab {
-    bottom: 17px;
+    bottom: 3px;
   }
 
   .nave-tab__item {
@@ -41,5 +46,10 @@
     line-height: 16px;
     min-height: 26px;
     min-width: 82px;
+    margin-right: 6px;
+  }
+
+  .nave-tab__item:nth-last-child(1) {
+    margin-right: 0;
   }
 }

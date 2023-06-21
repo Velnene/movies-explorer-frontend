@@ -216,4 +216,54 @@
     font-size: 11px;
     line-height: 13px;
   }
+
+  .about-project__timing-item:nth-last-of-type(1) {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .about-project__timing-item:nth-last-of-type(2)::after {
+    font-size: 11px;
+    line-height: 13px;
+    bottom: -29px;
+    left: 86%;
+  }
+
+  .about-project__timing-item:nth-last-of-type(1)::after {
+    font-size: 11px;
+    line-height: 13px;
+    bottom: -29px;
+    left: 69%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-project__text {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .about-project__info-item:nth-last-of-type(3) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .about-project__info-item:nth-last-of-type(4) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .about-project__info-item:nth-last-of-type(2) {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .about-project__info-item:nth-last-of-type(1) {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .about-project {
+    padding-bottom: 93px;
+  }
 }
