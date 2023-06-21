@@ -17,6 +17,7 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Error from '../Error/Error';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import Main from '../Main/Main';
 
 function App() {
   const [value, setValue] = useState(false);
@@ -37,51 +38,63 @@ function App() {
       <div className='app'>
         <Routes>
           <Route path='/' element={<>
-            <Header
-              loggedIn={false} />
-            <Promo />
-            <AboutProject />
-            <Techs />
-            <AboutMe />
-            <Portfolio />
-            <Footer />
+            <Main>
+              <Header
+                loggedIn={false} />
+              <Promo />
+              <AboutProject />
+              <Techs />
+              <AboutMe />
+              <Portfolio />
+              <Footer />
+            </Main>
           </>} />
           <Route path='/movies' element={<>
-            <Header
-              handleOpenBurger={handleOpenBurger}
-              loggedIn={true} />
-            <Movies
-              isOn={value}
-              handleToggle={() => setValue(!value)}
-            />
-            <Footer />
+            <Main>
+              <Header
+                handleOpenBurger={handleOpenBurger}
+                loggedIn={true} />
+              <Movies
+                isOn={value}
+                handleToggle={() => setValue(!value)}
+              />
+              <Footer />
+            </Main>
           </>} />
           <Route path='/saved-movies' element={<>
-            <Header
-              handleOpenBurger={handleOpenBurger}
-              loggedIn={true} />
-            <SavedMovies
-              isOn={value}
-              handleToggle={() => setValue(!value)}
-            />
-            <Footer />
+            <Main>
+              <Header
+                handleOpenBurger={handleOpenBurger}
+                loggedIn={true} />
+              <SavedMovies
+                isOn={value}
+                handleToggle={() => setValue(!value)}
+              />
+              <Footer />
+            </Main>
           </>} />
           <Route path='/profile' element={<>
-            <Header
-              loggedIn={true} />
-            <Profile />
+            <Main>
+              <Header
+                loggedIn={true} />
+              <Profile />
+            </Main>
           </>} />
           <Route path='/signin' element={<>
-            <Register />
+            <Main>
+              <Register />
+            </Main>
           </>} />
           <Route path='/signup' element={<>
-            <Login />
+            <Main>
+              <Login />
+            </Main>
           </>} />
-          <Route path='*' element={
-            <>
+          <Route path='*' element={<>
+            <Main>
               <Error />
-            </>
-          } />
+            </Main>
+          </>} />
         </Routes>
         <BurgerMenu
           closeBurger={closeBurger}
