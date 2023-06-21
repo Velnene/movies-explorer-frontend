@@ -85,6 +85,7 @@
   font-size: 13px;
   line-height: 18px;
   color: white;
+  cursor: default;
 }
 
 .search-form__stroke {
@@ -105,6 +106,11 @@
   height: 34px;
   border-radius: 48px;
   border: none;
+}
+
+.search-form__button:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .search-form__switch {

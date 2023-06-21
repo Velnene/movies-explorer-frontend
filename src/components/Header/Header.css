@@ -26,6 +26,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  text-decoration: none;
+}
+
+.header__profile:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .header__navigation {
@@ -42,6 +49,10 @@
   text-decoration: none;
 }
 
+.header__navigation-button:hover {
+  opacity: 0.8;
+}
+
 .header__navigation-button:nth-last-of-type(1) {
   font-weight: 400;
   font-size: 13px;
@@ -49,19 +60,32 @@
   margin-left: 16px;
 }
 
+.header__auth {
+  display: flex;
+  align-items: center;
+}
+
 .header__login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   min-height: 32px;
   min-width: 76px;
-  text-align: center;
   color: black;
   border: 0;
   margin: 0 0 0 30px;
   background-color: #2BE080;
   border-radius: 3px;
   padding: 0;
+  text-decoration: none;
+}
+
+.header__login:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .header__registration {
@@ -72,6 +96,12 @@
   background: none;
   color: white;
   padding: 0;
+  text-decoration: none;
+}
+
+.header__registration:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .header__burger {

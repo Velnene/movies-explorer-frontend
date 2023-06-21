@@ -3,6 +3,12 @@
   margin: 0;
 }
 
+.button-more__button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+
+}
+
 .button-more__button {
   padding: 0;
   color: white;

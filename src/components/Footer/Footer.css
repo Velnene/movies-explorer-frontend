@@ -42,6 +42,11 @@
   line-height: 16px;
 }
 
+.footer__link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .footer__link:nth-last-of-type(1) {
   margin: 0;
 }

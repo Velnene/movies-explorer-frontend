@@ -6,26 +6,27 @@ import api from '../../utils/api';
 function Movies({ isOn, handleToggle }) {
 
   const [films, getFilms] = useState([]);
-
+//После перезагрузки страницы, меняется кол-во карточек
   useEffect(() => {
     api.getFilm()
       .then((res) => {
+        let allFilms = res?.films;
         if (window.matchMedia("(max-width: 600px)").matches) {
-          getFilms(res.films.slice(15));
+          getFilms(allFilms.slice(15));
         }
         else if (window.matchMedia("(max-width: 800px)").matches) {
-          getFilms(res.films.slice(12));
+          getFilms(allFilms.slice(12));
         }
         else if (window.matchMedia("(max-width: 1400px)").matches) {
-          getFilms(res.films.slice(8));
+          getFilms(allFilms.slice(8));
         }
         else {
-          getFilms(res.films);
+          getFilms(allFilms);
         }
       }).catch((err) => {
-        alert(err);
+        alert(err.message);
       });
-  }, [films])
+  }, [])
 
 
   return (

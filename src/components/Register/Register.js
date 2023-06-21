@@ -16,7 +16,7 @@ function Register() {
           <input defaultValue='pochta@yandex.ru' type='email' className='register__input' required minLength="2" maxLength='40'></input>
         </label>
         <label className='register__lable'>Пароль
-          <input defaultValue='12345678901234' className='register__input register__input-error' type='password' required minlength='8' maxLength='40'></input>
+          <input defaultValue='12345678901234' className='register__input register__input-error' type='password' required minLength='8' maxLength='40'></input>
           <span className='register__error'>Что-то пошло не так...</span>
         </label>
         <button className='register__button'>Зарегистрироваться</button>

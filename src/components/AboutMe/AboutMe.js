@@ -2,7 +2,7 @@ import './AboutMe.css'
 import photo from '../../images/pic__photo.png'
 function AboutMe() {
   return (
-    <div className='about-me'>
+    <section className='about-me' id='student'>
       <h2 className='about-me__title'>Студент</h2>
       <div className='about-me__info'>
         <div className='about-me__text-info'>
@@ -13,9 +13,9 @@ function AboutMe() {
             После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
           <p className='about-me__my-network'>Github</p>
         </div>
-        <img className='about-me__info-image' src={photo}></img>
+        <img className='about-me__info-image' src={photo} alt='me'></img>
       </div>
-    </div>
+    </section>
   )
 }
 

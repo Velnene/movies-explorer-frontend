@@ -11,7 +11,13 @@ function SavedMovies({ isOn, handleToggle }) {
   useEffect(() => {
     api.getFilm()
       .then((res) => {
-        getFilms(res.films.slice(17));
+        let allFilms = res?.films;
+        if (window.matchMedia("(max-width: 600px)").matches) {
+          getFilms(allFilms.slice(18));
+        }
+        else if (window.matchMedia("(max-width: 1500px)").matches) {
+          getFilms(allFilms.slice(17));
+        }
       }).catch((err) => {
         alert(err);
       });

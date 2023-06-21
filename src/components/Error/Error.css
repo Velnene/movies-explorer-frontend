@@ -58,6 +58,11 @@
     line-height: 15px;
   }
 
+  .error__button-back{
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
   .error {
     padding-bottom: 30px;
   }

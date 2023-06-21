@@ -54,6 +54,11 @@
   align-content: center;
 }
 
+.login__button:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .login__enter {
   margin: 0;
   margin-top: 16px;
