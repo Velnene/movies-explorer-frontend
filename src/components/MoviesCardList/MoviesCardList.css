@@ -19,7 +19,6 @@
 @media screen and (max-width: 768px) {
   .movies-card-list {
     row-gap: 36px;
-    justify-content: space-between;
   }
 }
 

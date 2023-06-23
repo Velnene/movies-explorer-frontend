@@ -71,10 +71,6 @@
   height: 26px;
 }
 
-.burger-menu__link:nth-last-of-type(1) {
-  margin-bottom: o;
-}
-
 .burger-menu__profile {
   width: 100px;
   height: 32px;

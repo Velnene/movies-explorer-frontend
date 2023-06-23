@@ -24,13 +24,15 @@
 }
 
 @media screen and (max-width: 880px) {
-  .button-more__button {
-    max-width: 708px;
-    padding: 0;
-  }
-
   .button-more {
     padding: 80px 30px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .button-more {
+    padding: 80px 10px;
     margin-bottom: 0;
   }
 }

@@ -7,7 +7,9 @@ function Header({ loggedIn, handleOpenBurger }) {
   return (
     loggedIn ?
       <header className='header'>
-        <img className="header__logo" src={logo} alt='логотип' />
+        <Link to='/'>
+          <img className="header__logo" src={logo} alt='логотип' />
+        </Link>
         <div className='header__navigation'>
           <Link className='header__navigation-button' to='/movies'>Фильмы</Link>
           <Link className='header__navigation-button' to='/saved-movies'>Сохранённые фильмы</Link>
@@ -17,7 +19,9 @@ function Header({ loggedIn, handleOpenBurger }) {
       </header>
       :
       <header className='header'>
-        <img className="header__logo" src={logo} alt='логотип' />
+        <Link to='/'>
+          <img className="header__logo" src={logo} alt='логотип' />
+        </Link>
         <div className='header__auth'>
           <Link className='header__registration' to='signup'>Регистрация</Link>
           <Link className='header__login' to='signin'>Войти</Link>

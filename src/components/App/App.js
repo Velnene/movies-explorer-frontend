@@ -38,45 +38,45 @@ function App() {
       <div className='app'>
         <Routes>
           <Route path='/' element={<>
+            <Header
+              loggedIn={false} />
             <Main>
-              <Header
-                loggedIn={false} />
               <Promo />
               <AboutProject />
               <Techs />
               <AboutMe />
               <Portfolio />
-              <Footer />
             </Main>
+            <Footer />
           </>} />
           <Route path='/movies' element={<>
+            <Header
+              handleOpenBurger={handleOpenBurger}
+              loggedIn={true} />
             <Main>
-              <Header
-                handleOpenBurger={handleOpenBurger}
-                loggedIn={true} />
               <Movies
                 isOn={value}
                 handleToggle={() => setValue(!value)}
               />
-              <Footer />
             </Main>
+            <Footer />
           </>} />
           <Route path='/saved-movies' element={<>
+            <Header
+              handleOpenBurger={handleOpenBurger}
+              loggedIn={true} />
             <Main>
-              <Header
-                handleOpenBurger={handleOpenBurger}
-                loggedIn={true} />
               <SavedMovies
                 isOn={value}
                 handleToggle={() => setValue(!value)}
               />
-              <Footer />
             </Main>
+            <Footer />
           </>} />
           <Route path='/profile' element={<>
+            <Header
+              loggedIn={true} />
             <Main>
-              <Header
-                loggedIn={true} />
               <Profile />
             </Main>
           </>} />
