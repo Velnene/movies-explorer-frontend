@@ -69,6 +69,10 @@
   background-image: url('../../images/delete-movie.svg');
 }
 
+.movie-card__link-about-trailer{
+  cursor: pointer;
+}
+
 @media screen and (max-width: 880px) {
   .movie-card__image {
     width: 339px;

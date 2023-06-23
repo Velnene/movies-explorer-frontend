@@ -8,15 +8,16 @@ function MoviesCard(props) {
   //Временно
   function activate() {
     setActive(true);
-    console.log(active)
   }
 
   return (
     <div id="movies-template">
       <article className="movie-card">
-        <p className="movie-card__name">{props.film.nameRu}</p>
-        <p className="movie-card__time">{props.film.filmLength}</p>
-        <img className="movie-card__image" alt={props.film.nameRu} src={props.film.posterUrl} />
+        <p className="movie-card__name">{props.film.nameRU}</p>
+        <p className="movie-card__time">{props.film.duration}</p>
+        <a className='movie-card__link-about-trailer' href={props.film.trailerLink}>
+          <img className="movie-card__image" alt={props.film.nameRU} src={`https://api.nomoreparties.co/${props.film.image.url}`} />
+        </a>
         {/* Временно */}
         {!active ?
           <button onClick={activate} className={!props.deleteCardIcon ? 'movie-card__button-save' : 'movie-card__button-save movie-card__button-delete-movie'}></button>

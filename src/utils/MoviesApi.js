@@ -1,10 +1,9 @@
 export class Api {
 
   getFilm() {
-    return fetch("https://kinopoiskapiunofficial.tech/api/v2.1/films/top", {
+    return fetch("https://api.nomoreparties.co/beatfilm-movies", {
       headers: {
         "Content-Type": "application/json",
-        "X-API-KEY": "8c8e1a50-6322-4135-8875-5d40a5420d86"
       }
     })
       .then((res) => {

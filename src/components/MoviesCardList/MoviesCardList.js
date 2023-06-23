@@ -6,19 +6,13 @@ import ButtonMore from '../ButtonMore/ButtonMore';
 function MoviesCardList({ films, deleteCardIcon }) {
   const [moreButton, setMoreButton] = useState(false);
 
-  useEffect(() => {
-    if (films.length > 4) {
-      setMoreButton(true);
-    }
-  });
-
   return (
     <>
       <section className='movies-card-list'>
         {films.map((film) => (
           <MoviesCard
             film={film}
-            key={film.filmId}
+            key={film.id}
             deleteCardIcon={deleteCardIcon}
           />
         ))}

@@ -1,7 +1,7 @@
 import './SavedMovies.css'
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import React, { useState, useEffect } from 'react'
-import api from '../../utils/api';
+import api from '../../utils/MoviesApi';
 import SearchForm from '../SearchForm/SearchForm';
 
 function SavedMovies({ isOn, handleToggle }) {
