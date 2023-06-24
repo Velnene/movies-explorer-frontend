@@ -1,0 +1,133 @@
+.burger-menu {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.6s, opacity 0.6s linear;
+}
+
+.burger-menu__open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.burger-menu__container {
+  min-width: 520px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+
+.burger-menu__button-close {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  background: none;
+  position: absolute;
+  right: 29px;
+  top: 20px;
+}
+
+.burger-menu__subtitle {
+  margin-top: 159px;
+  margin-bottom: 28px;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 0;
+}
+
+.burger-menu__links {
+  margin: 0 90px 0;
+  padding: 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger-menu__link {
+  text-align: center;
+  list-style: none;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 22px;
+  height: 26px;
+}
+
+.burger-menu__profile {
+  width: 100px;
+  height: 32px;
+  background: #313131;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  position: absolute;
+  bottom: 90px;
+  margin-top: 621px;
+  padding: 0;
+}
+
+.burger-menu__link_active {
+  width: 72px;
+  border-bottom: solid 2px white;
+}
+
+@media screen and (max-height: 420px) {
+  .burger-menu__profile {
+    bottom: 46px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .burger-menu__container {
+    padding: 0;
+    min-width: 320px;
+    max-width: 100%;
+  }
+
+  .burger-menu__subtitle {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 144px auto 24px;
+  }
+
+  .burger-menu__link {
+    font-size: 18px;
+    line-height: 22px;
+    width: 300px;
+  }
+
+  .burger-menu__link_active {
+    width: 72px;
+    height: 29px;
+    margin-bottom: 15px;
+  }
+
+  .burger-menu__button-close {
+    right: 23px;
+    top: 11px;
+  }
+
+  .burger-menu__profile {
+    bottom: 46px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

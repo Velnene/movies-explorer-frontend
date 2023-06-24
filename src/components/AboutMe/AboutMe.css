@@ -1,0 +1,155 @@
+.about-me {
+  padding: 110px 70px 0;
+  color: white;
+}
+
+.about-me__title {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  padding-bottom: 23px;
+  border-bottom: solid 1px white;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.about-me__my-name {
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.about-me__info-title {
+  margin: 18px 0 26px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.about-me__subtitle {
+  margin: 0 0 99px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.about-me__info {
+  margin: 66px 0 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-me__my-network {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+}
+
+.about-me__text-info {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-me__info-image {
+  margin: 0;
+  max-height: 327px;
+}
+
+@media screen and (max-width: 880px) {
+  .about-me {
+    padding: 90px 50px 0;
+  }
+
+  .about-me__title {
+    border-bottom: solid 1px #DADADA;
+  }
+
+  .about-me__my-name {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .about-me__info-title {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 16px 0 20px 0;
+  }
+
+  .about-me__subtitle {
+    font-size: 12px;
+    line-height: 18px;
+    max-width: 364px;
+    margin-bottom: 87px;
+  }
+
+  .about-me__info-image {
+    height: 307px;
+    width: 255px;
+  }
+
+  .about-me__info {
+    margin-bottom: 91px;
+  }
+}
+
+@media screen and (max-width:720px) {
+  .about-me__info {
+    margin: 60px auto 70px;
+    margin-top: 60px;
+    display: grid;
+    grid-template-areas: "image"
+      "name"
+      "profession"
+      "about"
+      "link";
+  }
+
+  .about-me__info-image {
+    grid-area: image;
+    width: 292px;
+    min-height: 352px;
+    margin-bottom: 40px;
+  }
+
+  .about-me {
+    padding: 70px 14px 0;
+  }
+
+  .about-me__my-name {
+    grid-area: name;
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .about-me__info-title {
+    grid-area: profession;
+    font-size: 11px;
+    line-height: 16px;
+    margin: 20px 0;
+  }
+
+  .about-me__subtitle {
+    grid-area: about;
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 40px;
+  }
+
+  .about-me__my-network {
+    grid-area: link;
+  }
+
+  .about-me__title {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 28px;
+  }
+}

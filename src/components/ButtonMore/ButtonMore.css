@@ -1,0 +1,38 @@
+.button-more {
+  padding: 80px 70px;
+  margin: 0;
+}
+
+.button-more__button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+
+}
+
+.button-more__button {
+  padding: 0;
+  color: white;
+  width: 100%;
+  max-width: 1140px;
+  height: 36px;
+  background: #2F2F2F;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+@media screen and (max-width: 880px) {
+  .button-more {
+    padding: 80px 30px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .button-more {
+    padding: 80px 10px;
+    margin-bottom: 0;
+  }
+}

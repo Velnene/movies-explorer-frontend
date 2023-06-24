@@ -1,0 +1,161 @@
+.header {
+  min-height: 74px;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin: 0 auto;
+  padding: 0 70px;
+}
+
+.header__logo {
+  min-height: 38px;
+  min-width: 38px;
+}
+
+.header__profile {
+  min-width: 100px;
+  min-height: 32px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  background: #313131;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+}
+
+.header__profile:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.header__navigation {
+  display: flex;
+  align-items: center;
+  margin: auto 0 auto 60px;
+}
+
+.header__navigation-button {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  color: white;
+  text-decoration: none;
+}
+
+.header__navigation-button:hover {
+  opacity: 0.8;
+}
+
+.header__navigation-button:nth-last-of-type(1) {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  margin-left: 16px;
+}
+
+.header__auth {
+  display: flex;
+  align-items: center;
+}
+
+.header__login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  min-height: 32px;
+  min-width: 76px;
+  color: black;
+  border: 0;
+  margin: 0 0 0 30px;
+  background-color: #2BE080;
+  border-radius: 3px;
+  padding: 0;
+  text-decoration: none;
+}
+
+.header__login:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.header__registration {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  border: 0;
+  background: none;
+  color: white;
+  padding: 0;
+  text-decoration: none;
+}
+
+.header__registration:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.header__burger {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 30px;
+  }
+
+  .header__navigation-button {
+    display: none;
+  }
+
+  .header__profile {
+    display: none;
+  }
+
+  .header__burger {
+    display: block;
+    background-image: url('../../images/burger.svg');
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #202020;
+    padding: 0;
+    background-position: center;
+    margin-right: 2px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    padding: 0 14px;
+  }
+
+  .header__login {
+    min-height: 26px;
+    min-width: 54px;
+    font-size: 10px;
+    line-height: 16px;
+    margin-left: 14PX;
+  }
+
+  .header__registration {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__burger {
+    background-image: url('../../images/burger-mini.svg');
+    width: 30px;
+    height: 30px;
+    margin: 0 5px 2px 0;
+  }
+}

@@ -1,0 +1,97 @@
+.movie-card__image {
+  height: 203px;
+  width: 364px;
+  object-fit: cover;
+}
+
+.movie-card__name {
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  margin: 0;
+  margin-bottom: 9px;
+  padding: 0;
+  margin-left: 14px;
+  /* Многоточие*/
+  max-width: 250px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card__time {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #8B8B8B;
+  margin-bottom: 14px;
+  margin-left: 14px;
+}
+
+.movie-card {
+  position: relative;
+  background: #222222;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  max-width: 364px;
+  height: 257px;
+  padding-top: 14px;
+}
+
+.movie-card__button-save {
+  width: 30px;
+  height: 30px;
+  background: #313131;
+  border-radius: 36px;
+  border: none;
+  background-image: url('../../images/button-save.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  right: 14px;
+  top: 19px;
+}
+
+.movie-card__button-save{
+  cursor: pointer;
+}
+
+.movie-card__button-save_active {
+  background: #3DDC84;
+  background-image: url('../../images/button-save-active.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.movie-card__button-delete-movie {
+  background-image: url('../../images/delete-movie.svg');
+}
+
+@media screen and (max-width: 880px) {
+  .movie-card__image {
+    width: 339px;
+    height: 190px;
+  }
+
+  .movie-card {
+    height: 244px;
+  }
+}
+
+@media screen and (max-width: 762px) {
+  .movie-card {
+    height: 222px;
+    width: 300px;
+  }
+
+  .movie-card__image {
+    width: 300px;
+    height: 168px;
+  }
+
+  .movie-card__name {
+    max-width: 200px;
+  }
+}
