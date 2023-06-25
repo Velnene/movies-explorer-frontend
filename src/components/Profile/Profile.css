@@ -26,6 +26,7 @@
   direction: rtl;
   background: none;
   border: none;
+  color: white;
 }
 
 .profile__input-name::placeholder {
@@ -36,6 +37,7 @@
   direction: rtl;
   border: none;
   background: none;
+  color: white;
 }
 
 .profile__input-email::placeholder {

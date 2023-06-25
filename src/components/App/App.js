@@ -111,6 +111,16 @@ function App() {
       });
   }
 
+  function handleUpdateUser(name, email) {
+    const jwt = localStorage.getItem('jwt');
+    apiSaveMovies.changeUserInfo({ name: name, email: email }, jwt).then((res) => {
+      setUserInfo(res);
+      navigate('/movies')
+    }).catch((err) => {
+      alert(err);
+    });
+  }
+
   return (
     <Context.Provider value={currentUser} >
       <div className='app'>
@@ -156,7 +166,9 @@ function App() {
               loggedIn={loggedIn} />
             <Main>
               <Profile
+                currentUser={currentUser}
                 nameProfile={nameProfile}
+                changeProfile={handleUpdateUser}
               />
             </Main>
           </>} />

@@ -89,6 +89,29 @@ class SaveMovies {
       })
   }
 
+  changeUserInfo({ name, email }, jwt) {
+    console.log(name + email)
+    return fetch(this._url + '/users/me', {
+      method: 'PATCH',
+      headers: {
+        authorization: `Bearer ${jwt}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email
+      })
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        else {
+          return Promise.reject(`Ошибка: ${res.status}`);
+        }
+      })
+  }
+
 }
 
 const apiSaveMovies = new SaveMovies();
