@@ -1,9 +1,9 @@
 import './Profile.css'
 
-function Profile() {
+function Profile(props) {
   return (
     <section className='profile'>
-      <h2 className='profile__welcome'>Привет, Виталий!</h2>
+      <h2 className='profile__welcome'>Привет, {props.nameProfile}!</h2>
       <form className='profile__form'>
         <label className='profile__label'>Имя
           <input placeholder='Виталий' className='profile__input-name' required></input>

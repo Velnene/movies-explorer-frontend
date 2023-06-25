@@ -5,8 +5,6 @@ import { useState } from 'react';
 function SearchForm({ isOn, handleToggle, getSerchFilm }) {
   const [value, getValue] = useState('');
 
-  
-
   function handleSubmit(e) {
     e.preventDefault();
     getSerchFilm(value)

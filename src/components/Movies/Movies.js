@@ -34,9 +34,7 @@ function Movies({ isOn, handleToggle }) {
     if (word === '') {
       return
     }
-    // getSearchFilms(films.findIndex(element => element.includes(word)));
-    // console.log(searchFilms);
-    getSearchFilms(films.filter(element => element.nameRU.includes(word)))
+    getSearchFilms(films.filter(element => element.nameRU.match(word)))
   }
 
   return (
