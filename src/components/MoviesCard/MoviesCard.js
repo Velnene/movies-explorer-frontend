@@ -7,24 +7,37 @@ function MoviesCard(props) {
   const [active, setActive] = useState(false);
   //Временно
   function activate() {
+    props.saveFilm(props.film);
     setActive(true);
+  }
+
+  function delteFilms() {
+    props.deleteFilm(props.film._id);
   }
 
   return (
     <div id="movies-template">
-      <article className="movie-card">
+      {props.isSerchfilms ? <article className="movie-card">
         <p className="movie-card__name">{props.film.nameRU}</p>
         <p className="movie-card__time">{props.film.duration}</p>
         <a className='movie-card__link-about-trailer' href={props.film.trailerLink}>
-          <img className="movie-card__image" alt={props.film.nameRU} src={`https://api.nomoreparties.co/${props.film.image.url}`} />
+          <img className="movie-card__image" alt={props.film.nameRU} src={`${props.film.image}`} />
         </a>
-        {/* Временно */}
-        {!active ?
-          <button onClick={activate} className={!props.deleteCardIcon ? 'movie-card__button-save' : 'movie-card__button-save movie-card__button-delete-movie'}></button>
-          :
-          <button onClick={activate} className={!props.deleteCardIcon ? 'movie-card__button-save movie-card__button-save_active' : ''}></button>
-        }
+        <button onClick={delteFilms} className={'movie-card__button-save movie-card__button-delete-movie'}></button>
       </article>
+        :
+        <article className="movie-card">
+          <p className="movie-card__name">{props.film.nameRU}</p>
+          <p className="movie-card__time">{props.film.duration}</p>
+          <a className='movie-card__link-about-trailer' href={props.film.trailerLink}>
+            <img className="movie-card__image" alt={props.film.nameRU} src={`https://api.nomoreparties.co${props.film.image.url}`} />
+          </a>
+          {!active ?
+            <button onClick={activate} className={'movie-card__button-save'}></button>
+            :
+            <button onClick={activate} className={'movie-card__button-save movie-card__button-save_active'}></button>
+          }
+        </article>}
     </div>
   )
 }

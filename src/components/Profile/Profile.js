@@ -29,7 +29,7 @@ function Profile(props) {
         </label>
         <button className='profile__input-button'>Редактировать</button>
       </form>
-      <button className='profile__exit'>Выйти из аккаунта</button>
+      <button onClick={props.exitProfile} className='profile__exit'>Выйти из аккаунта</button>
     </section>
   )
 }

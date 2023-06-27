@@ -33,7 +33,7 @@ function Login(props) {
         <button className='login__button'>Войти</button>
       </form>
       <span className='login__enter'>Ещё не зарегистрированы?
-        <a href='/signin' className='login__enter-link'>Регистрация</a>
+        <a href='/signup' className='login__enter-link'>Регистрация</a>
       </span>
     </section>
   )

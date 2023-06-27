@@ -1,16 +1,18 @@
 import './SavedMovies.css'
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import React, { useState, useEffect } from 'react'
-import apiSaveMovies from '../../utils/MainApi';
+import apiMain from '../../utils/MainApi';
 import SearchForm from '../SearchForm/SearchForm';
 
 function SavedMovies({ isOn, handleToggle }) {
   const deleteCardIcon = true;
   const [films, getFilms] = useState([]);
   const [searchFilms, getSearchFilms] = useState([]);
+  const isSerchfilms = true;
 
   useEffect(() => {
-    apiSaveMovies.getSavedFilm()
+    const jwt = localStorage.getItem('jwt');
+    apiMain.getSavedFilm(jwt)
       .then((res) => {
         let allFilms = res;
         if (window.matchMedia("(max-width: 600px)").matches) {
@@ -31,6 +33,16 @@ function SavedMovies({ isOn, handleToggle }) {
     getSearchFilms(films.filter(element => element.nameRU.match(word)))
   }
 
+  function deleteFilm(id) {
+    const jwt = localStorage.getItem('jwt');
+    apiMain.deleteFilm(id, jwt)
+      .then((res) => {
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
   return (
     <section>
       <SearchForm
@@ -39,8 +51,10 @@ function SavedMovies({ isOn, handleToggle }) {
         getSerchFilm={getSerchFilm}
       />
       {<MoviesCardList
+        isSerchfilms={isSerchfilms}
         deleteCardIcon={deleteCardIcon}
         films={searchFilms}
+        deleteFilm={deleteFilm}
       />}
     </section>
   )

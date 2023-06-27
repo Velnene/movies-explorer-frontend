@@ -20,7 +20,7 @@ import Login from '../Login/Login';
 import Error from '../Error/Error';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Main from '../Main/Main';
-import apiSaveMovies from '../../utils/MainApi';
+import apiMain from '../../utils/MainApi';
 
 function App() {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ function App() {
       return;
     }
     else {
-      apiSaveMovies.getSign(jwt)
+      apiMain.getSign(jwt)
         .then((res) => {
           if (res) {
             setLoggedIn(true);
@@ -54,7 +54,7 @@ function App() {
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
     if (loggedIn) {
-      apiSaveMovies.getUserInfo(jwt)
+      apiMain.getUserInfo(jwt)
         .then((res) => {
           setNameProfile(res.name);
           setUserInfo(res);
@@ -76,7 +76,7 @@ function App() {
     if (!password || !email || !name) {
       return;
     }
-    apiSaveMovies.signUp(name, email, password)
+    apiMain.signUp(name, email, password)
       .then((res) => {
         localStorage.setItem('jwt', res.token);
         navigate('/signin');
@@ -96,7 +96,7 @@ function App() {
     if (!password || !email) {
       return;
     }
-    apiSaveMovies.signIn(email, password)
+    apiMain.signIn(email, password)
       .then((res) => {
         localStorage.setItem('jwt', res.token)
         navigate('/movies');
@@ -113,12 +113,18 @@ function App() {
 
   function handleUpdateUser(name, email) {
     const jwt = localStorage.getItem('jwt');
-    apiSaveMovies.changeUserInfo({ name: name, email: email }, jwt).then((res) => {
+    apiMain.changeUserInfo({ name: name, email: email }, jwt).then((res) => {
       setUserInfo(res);
       navigate('/movies')
     }).catch((err) => {
       alert(err);
     });
+  }
+
+  function exitProfile() {
+    localStorage.removeItem('jwt');
+    setLoggedIn(false);
+    navigate('/signin');
   }
 
   return (
@@ -169,6 +175,7 @@ function App() {
                 currentUser={currentUser}
                 nameProfile={nameProfile}
                 changeProfile={handleUpdateUser}
+                exitProfile={exitProfile}
               />
             </Main>
           </>} />
