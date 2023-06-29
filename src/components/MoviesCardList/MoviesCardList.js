@@ -4,7 +4,7 @@ import MoviesCard from '../MoviesCard/MoviesCard'
 import ButtonMore from '../ButtonMore/ButtonMore';
 import apiMain from '../../utils/MainApi'
 
-function MoviesCardList({ films, deleteCardIcon, isSerchfilms, deleteFilm }) {
+function MoviesCardList({ films, deleteCardIcon, isSerchfilms, getSearchFilms }) {
   const [moreButton, setMoreButton] = useState(false);
 
   function saveFilm(films) {
@@ -12,11 +12,21 @@ function MoviesCardList({ films, deleteCardIcon, isSerchfilms, deleteFilm }) {
     apiMain.saveFilm(films, jwt)
       .then((res) => {
         console.log('фильм сохранен');
-        alert(res);
       })
       .catch((res) => {
         alert(res);
       })
+  }
+
+  function deleteFilm(id) {
+    const jwt = localStorage.getItem('jwt');
+    apiMain.deleteFilm(id, jwt)
+      .then((res) => {
+        getSearchFilms((items) => items.filter((card) => card._id !== id))
+      })
+      .catch((err) => {
+        alert(err);
+      });
   }
 
   return (

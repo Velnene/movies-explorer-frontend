@@ -1,14 +1,37 @@
 import React from 'react';
 import { useState } from 'react'
 import './MoviesCard.css'
+import apiMain from '../../utils/MainApi';
 
 function MoviesCard(props) {
-  //Временно
   const [active, setActive] = useState(false);
-  //Временно
+
   function activate() {
-    props.saveFilm(props.film);
-    setActive(true);
+    if (!active) {
+      props.saveFilm(props.film);
+      setActive(true);
+    } else {
+      const jwt = localStorage.getItem('jwt');
+      apiMain.getSavedFilm(jwt)
+        .then((res) => {
+          let allFilms = res;
+          allFilms.forEach(element => {
+            console.log(element)
+            if (props.film.nameRU === element.nameRU) {
+              const jwt = localStorage.getItem('jwt');
+              apiMain.deleteFilm(element._id, jwt)
+                .then((res) => {
+                  setActive(false);
+                })
+                .catch((err) => {
+                  alert(err);
+                });
+            }
+          })
+        }).catch((err) => {
+          alert(err);
+        });
+    }
   }
 
   function delteFilms() {
@@ -32,11 +55,7 @@ function MoviesCard(props) {
           <a className='movie-card__link-about-trailer' href={props.film.trailerLink}>
             <img className="movie-card__image" alt={props.film.nameRU} src={`https://api.nomoreparties.co${props.film.image.url}`} />
           </a>
-          {!active ?
-            <button onClick={activate} className={'movie-card__button-save'}></button>
-            :
-            <button onClick={activate} className={'movie-card__button-save movie-card__button-save_active'}></button>
-          }
+          <button onClick={activate} className={!active ? 'movie-card__button-save' : 'movie-card__button-save movie-card__button-save_active'}></button>
         </article>}
     </div>
   )

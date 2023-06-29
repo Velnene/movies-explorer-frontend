@@ -33,15 +33,17 @@ function SavedMovies({ isOn, handleToggle }) {
     getSearchFilms(films.filter(element => element.nameRU.match(word)))
   }
 
-  function deleteFilm(id) {
-    const jwt = localStorage.getItem('jwt');
-    apiMain.deleteFilm(id, jwt)
-      .then((res) => {
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }
+  // function deleteFilm(id) {
+  //   const jwt = localStorage.getItem('jwt');
+  //   apiMain.deleteFilm(id, jwt)
+  //     .then((res) => {
+  //       getSearchFilms((items) => items.filter((card) => card._id !== id))
+
+  //     })
+  //     .catch((err) => {
+  //       alert(err);
+  //     });
+  // }
 
   return (
     <section>
@@ -54,7 +56,7 @@ function SavedMovies({ isOn, handleToggle }) {
         isSerchfilms={isSerchfilms}
         deleteCardIcon={deleteCardIcon}
         films={searchFilms}
-        deleteFilm={deleteFilm}
+        getSearchFilms={getSearchFilms}
       />}
     </section>
   )
