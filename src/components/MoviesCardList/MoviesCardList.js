@@ -4,7 +4,7 @@ import MoviesCard from '../MoviesCard/MoviesCard'
 import ButtonMore from '../ButtonMore/ButtonMore';
 import apiMain from '../../utils/MainApi'
 
-function MoviesCardList({ films, deleteCardIcon, isSerchfilms, getSearchFilms }) {
+function MoviesCardList({ films, deleteCardIcon, isSerchfilms, getSearchFilms}) {
   const [moreButton, setMoreButton] = useState(false);
 
   function saveFilm(films) {
@@ -17,6 +17,9 @@ function MoviesCardList({ films, deleteCardIcon, isSerchfilms, getSearchFilms })
         alert(res);
       })
   }
+
+
+  
 
   function deleteFilm(id) {
     const jwt = localStorage.getItem('jwt');

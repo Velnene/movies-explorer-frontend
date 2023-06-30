@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react'
 import './MoviesCard.css'
 import apiMain from '../../utils/MainApi';
 
 function MoviesCard(props) {
+
   const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const jwt = localStorage.getItem('jwt');
+    apiMain.getSavedFilm(jwt)
+      .then((res) => {
+        let allFilms = res;
+        allFilms.forEach(element => {
+          if (element.nameRU === props.film.nameRU) {
+            setActive(true);
+          } 
+        })
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, [])
+
+
 
   function activate() {
     if (!active) {
@@ -16,7 +35,6 @@ function MoviesCard(props) {
         .then((res) => {
           let allFilms = res;
           allFilms.forEach(element => {
-            console.log(element)
             if (props.film.nameRU === element.nameRU) {
               const jwt = localStorage.getItem('jwt');
               apiMain.deleteFilm(element._id, jwt)

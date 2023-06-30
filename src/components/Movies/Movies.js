@@ -8,6 +8,8 @@ function Movies({ isOn, handleToggle }) {
   const [films, getFilms] = useState([]);
   const [searchFilms, getSearchFilms] = useState([]);
 
+
+
   //После перезагрузки страницы, меняется кол-во карточек
   useEffect(() => {
     api.getFilm()
@@ -43,6 +45,8 @@ function Movies({ isOn, handleToggle }) {
         isOn={isOn}
         handleToggle={handleToggle}
         getSerchFilm={getSerchFilm}
+
+
       />
       <MoviesCardList
         films={searchFilms}
