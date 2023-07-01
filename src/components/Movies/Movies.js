@@ -15,28 +15,31 @@ function Movies({ isOn, handleToggle }) {
     api.getFilm()
       .then((res) => {
         let allFilms = res;
-        if (window.matchMedia("(max-width: 600px)").matches) {
-          getFilms(allFilms);
-        }
-        else if (window.matchMedia("(max-width: 800px)").matches) {
-          getFilms(allFilms);
-        }
-        else if (window.matchMedia("(max-width: 1400px)").matches) {
-          getFilms(allFilms);
-        }
-        else {
-          getFilms(allFilms);
-        }
+        getFilms(allFilms);
       }).catch((err) => {
         alert(err.message);
       });
-  }, [])
+  }, [searchFilms])
+
+  function showTheNumberOfFilms(word, start, end) {
+    let findFilms = films.filter(element => element.nameRU.match(word));
+    getFilms(getSearchFilms(findFilms.slice(start, end)));
+  }
 
   function getSerchFilm(word) {
     if (word === '') {
       return
     }
-    getSearchFilms(films.filter(element => element.nameRU.match(word)))
+
+    if (window.matchMedia("(max-width: 600px)").matches) {
+      showTheNumberOfFilms(word, 0, 5)
+    }
+    else if (window.matchMedia("(max-width: 800px)").matches) {
+      showTheNumberOfFilms(word, 0, 8)
+    }
+    else if (window.matchMedia("(max-width: 1400px)").matches) {
+      showTheNumberOfFilms(word, 0, 12)
+    }
   }
 
   return (
