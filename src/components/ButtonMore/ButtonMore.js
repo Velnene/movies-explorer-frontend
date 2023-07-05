@@ -1,9 +1,9 @@
 import './ButtonMore.css';
 
-function ButtonMore() {
+function ButtonMore(props) {
   return (
     <div className='button-more'>
-      <button className='button-more__button'>Ещё</button>
+      <button onClick={props.handleShowMorePosts} className='button-more__button'>Ещё</button>
     </div>
   )
 }

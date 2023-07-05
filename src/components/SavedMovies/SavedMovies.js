@@ -30,20 +30,9 @@ function SavedMovies({ isOn, handleToggle }) {
     if (word === '') {
       return
     }
+    console.log(word)
     getSearchFilms(films.filter(element => element.nameRU.match(word)))
   }
-
-  // function deleteFilm(id) {
-  //   const jwt = localStorage.getItem('jwt');
-  //   apiMain.deleteFilm(id, jwt)
-  //     .then((res) => {
-  //       getSearchFilms((items) => items.filter((card) => card._id !== id))
-
-  //     })
-  //     .catch((err) => {
-  //       alert(err);
-  //     });
-  // }
 
   return (
     <section>

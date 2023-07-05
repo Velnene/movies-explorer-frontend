@@ -4,8 +4,7 @@ import MoviesCard from '../MoviesCard/MoviesCard'
 import ButtonMore from '../ButtonMore/ButtonMore';
 import apiMain from '../../utils/MainApi'
 
-function MoviesCardList({ films, deleteCardIcon, isSerchfilms, getSearchFilms }) {
-  const [moreButton, setMoreButton] = useState(false);
+function MoviesCardList({ films, deleteCardIcon, isSerchfilms, getSearchFilms, handleShowMorePosts, moreButton }) {
 
   function saveFilm(films) {
     const jwt = localStorage.getItem('jwt');
@@ -44,7 +43,9 @@ function MoviesCardList({ films, deleteCardIcon, isSerchfilms, getSearchFilms })
         ))}
       </section>
       {moreButton ?
-        <ButtonMore />
+        <ButtonMore
+          handleShowMorePosts={handleShowMorePosts}
+        />
         : <div className='indent'></div>
       }
     </>

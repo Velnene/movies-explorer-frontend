@@ -1,3 +1,4 @@
+import { toBeValid } from '@testing-library/jest-dom/matchers';
 import './SearchForm.css'
 import { useState } from 'react';
 
@@ -17,7 +18,7 @@ function SearchForm({ isOn, handleToggle, getSerchFilm }) {
   return (
     <div className='search-form'>
       <form className='search-form__item' onSubmit={handleSubmit}>
-        <input className='search-form__input' value={value} onChange={handleChangeInput} type='text' placeholder='Фильм' required></input>
+        <input className='search-form__input' onChange={handleChangeInput} value={value} type='text' placeholder='Фильм' required></input>
         <button className='search-form__button'></button>
       </form>
       <div className='search-form__switch'>
