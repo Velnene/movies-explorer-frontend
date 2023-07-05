@@ -5,16 +5,13 @@ import api from '../../utils/MoviesApi';
 
 function Movies({ isOn, handleToggle }) {
   const [moreButton, setMoreButton] = useState(false);
-
   const [films, getFilms] = useState([]);
-  // const [findFilms, setFindFilms] = useState([]);
   const [searchFilms, getSearchFilms] = useState([]);
   const [next, setNext] = useState(0);
   const filmsPerPageForBigWidth = 3;
   const filmsPerPageForSmalWidth = 2;
 
   let arrayForHoldingFilms = [];
-  // let findFilms = [];
 
   useEffect(() => {
     api.getFilm()
@@ -31,8 +28,6 @@ function Movies({ isOn, handleToggle }) {
       return
     }
     localStorage.setItem('searchWord', word);
-    // setFindFilms(films.filter(element => element.nameRU.match(word)));
-
     if (window.matchMedia("(max-width: 600px)").matches) {
       showTheNumberOfFilms(0, 5)
     }
@@ -64,8 +59,6 @@ function Movies({ isOn, handleToggle }) {
       setNext(next + filmsPerPageForBigWidth);
     }
   };
-
-
 
   return (
     <>
