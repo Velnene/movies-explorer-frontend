@@ -23,8 +23,6 @@ function MoviesCard(props) {
       });
   }, [])
 
-
-
   function activate() {
     if (!active) {
       props.saveFilm(props.film);

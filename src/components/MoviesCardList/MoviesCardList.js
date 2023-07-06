@@ -1,5 +1,4 @@
 import './MoviesCardList.css'
-import React, { useEffect, useState } from 'react'
 import MoviesCard from '../MoviesCard/MoviesCard'
 import ButtonMore from '../ButtonMore/ButtonMore';
 import apiMain from '../../utils/MainApi'
