@@ -3,7 +3,6 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 
 function SavedMovies(props) {
-  props.getIsComponentSaveFilms(true);
   const deleteCardIcon = true;
   const isSerchfilms = true;
   

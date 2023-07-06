@@ -1,4 +1,3 @@
-import { toBeValid } from '@testing-library/jest-dom/matchers';
 import './SearchForm.css'
 import { useState } from 'react';
 

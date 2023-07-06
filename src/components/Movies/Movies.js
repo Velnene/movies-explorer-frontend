@@ -2,7 +2,6 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
 function Movies(props) {
-  props.getIsComponentSaveFilms(false);
 
   return (
     <>

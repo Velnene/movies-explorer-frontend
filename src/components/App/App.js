@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Context } from '../../context/CurrentUserContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,8 +9,8 @@ import Promo from '../Promo/Promo';
 import AboutProject from '../AboutProject/AboutProject';
 import Techs from '../Techs/Techs';
 import AboutMe from '../AboutMe/AboutMe';
-import Portfolio from '../Portfolio/Portfolio'
-import Footer from '../Footer/Footer'
+import Portfolio from '../Portfolio/Portfolio';
+import Footer from '../Footer/Footer';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
@@ -22,10 +22,43 @@ import Main from '../Main/Main';
 import apiMain from '../../utils/MainApi';
 import api from '../../utils/MoviesApi';
 
+
+// TODO 1. Preloader 2 Хранилище для фильмов
+//3
+// Если в процессе получения и обработки данных происходит ошибка, в окне результатов выводится
+// надпись: «Во время запроса произошла ошибка.Возможно, проблема с соединением или сервер недоступен.
+// Подождите немного и попробуйте ещё раз».
+
+//4 Это событие можно отслеживать с помощью слушателя "resize".
+//  Чтобы колбэк - функция слушателя не срабатывала слишком часто, например,
+//   при изменении ширины экрана в отладчике, мы рекомендуем установить setTimeout на вызов этой функции
+//    внутри слушателя "resize".
+
+
+//5 Если одно из полей не заполнено или не прошло валидацию,
+// кнопка «Зарегистрироваться» должна быть неактивна.Неактивная кнопка имеет другой цвет,
+//   и по ней невозможно кликнуть.
+
+// 6 Если данные введены корректно и отличаются от изначальных — кнопка
+// «Редактировать» станет активна и пользователь сможет кликнуть по ней.
+// Пользователя нужно уведомить о результате запроса к серверу.
+
+
+//7 При клике на кнопку «Выйти из аккаунта» происходит редирект на главную страницу
+//  и удаление JWT из локального хранилища или куки.Чтобы войти на сайт заново,
+//   пользователю потребуется повторно авторизоваться.
+
+// 8 Если неавторизованный пользователь по прямой ссылке попытается попасть на страницу 
+// «Сохранённые фильмы», «Фильмы», «Аккаунт» — должен произойти редирект на главную страницу.
+// Для этого используйте HOC - компонент ProtectedRoute.
+
+
+
+
 function App() {
   const navigate = useNavigate();
 
-  const [value, setValue] = useState(false);
+  const [isOn, setIsOn] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setUserInfo] = useState({});
   const [burger, openBurger] = useState(false);
@@ -103,6 +136,7 @@ function App() {
     if (word === '') {
       return
     }
+    localStorage.setItem('shortFilms', isOn)
     localStorage.setItem('searchWord', word);
     if (window.matchMedia("(max-width: 600px)").matches) {
       showTheNumberOfFilms(0, 5)
@@ -117,12 +151,18 @@ function App() {
 
   function showTheNumberOfFilms(start, end) {
     let word = localStorage.getItem('searchWord');
-    let findFilms = !isComponentSaveFilms ? films.filter(element => element.nameRU.match(word)) : saveFilms.filter(element => element.nameRU.match(word))
-    const slicedFilms = findFilms.slice(start, end);
+    let findFilms = !isComponentSaveFilms ?
+      films.filter(element => element.nameRU.match(word)) :
+      saveFilms.filter(element => element.nameRU.match(word));
+    let movies = !isOn ? findFilms
+      : findFilms.filter(element => {
+        if (element.duration > 40) return element;
+      });
+    const slicedFilms = movies.slice(start, end);
     arrayForHoldingFilms = [...arrayForHoldingFilms, ...slicedFilms];
     getSearchFilms(arrayForHoldingFilms);
     setNext(end);
-    setMoreButton(arrayForHoldingFilms.length < findFilms.length);
+    setMoreButton(arrayForHoldingFilms.length < movies.length);
   }
 
   const handleShowMorePosts = () => {
@@ -189,6 +229,15 @@ function App() {
     navigate('/signin');
   }
 
+
+  // Короткометражки
+
+
+  function includeShortFilms() {
+    setIsOn(!isOn);
+    localStorage.setItem('shortFilms', isOn)
+  }
+
   return (
     <Context.Provider value={currentUser} >
       <div className='app'>
@@ -207,6 +256,7 @@ function App() {
           </>} />
           <Route path='/movies' element={<>
             <Header
+              getIsComponentSaveFilms={getIsComponentSaveFilms}
               getSearchFilms={getSearchFilms}
               handleOpenBurger={handleOpenBurger}
               loggedIn={loggedIn} />
@@ -217,8 +267,8 @@ function App() {
                 getSerchFilm={getSerchFilm}
                 searchFilms={searchFilms}
                 moreButton={moreButton}
-                isOn={value}
-                handleToggle={() => setValue(!value)}
+                isOn={isOn}
+                handleToggle={includeShortFilms}
               />
             </Main>
             <Footer />
@@ -227,6 +277,7 @@ function App() {
             path='/saved-movies'
             element={<>
               <Header
+                getIsComponentSaveFilms={getIsComponentSaveFilms}
                 getSearchFilms={getSearchFilms}
                 handleOpenBurger={handleOpenBurger}
                 loggedIn={loggedIn} />
@@ -237,9 +288,9 @@ function App() {
                   searchFilms={searchFilms}
                   moreButton={moreButton}
                   handleShowMorePosts={handleShowMorePosts}
-                  isOn={value}
+                  isOn={isOn}
                   getSearchFilms={getSearchFilms}
-                  handleToggle={() => setValue(!value)}
+                  handleToggle={includeShortFilms}
                 />
               </Main>
               <Footer />

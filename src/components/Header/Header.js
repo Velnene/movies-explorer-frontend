@@ -2,10 +2,16 @@ import './Header.css';
 import logo from '../../images/logo.svg'
 import { Link } from 'react-router-dom';
 
-function Header({ loggedIn, handleOpenBurger, getSearchFilms }) {
+function Header({ loggedIn, handleOpenBurger, getSearchFilms, getIsComponentSaveFilms }) {
 
-  function clearStateSearch() {
+  function goToThePageSavedMovies() {
     getSearchFilms([]);
+    getIsComponentSaveFilms(true);
+  }
+
+  function goToThePageMovies() {
+    getSearchFilms([]);
+    getIsComponentSaveFilms(false);
   }
 
   return (
@@ -15,8 +21,8 @@ function Header({ loggedIn, handleOpenBurger, getSearchFilms }) {
           <img className="header__logo" src={logo} alt='логотип' />
         </Link>
         <div className='header__navigation'>
-          <Link onClick={clearStateSearch} className='header__navigation-button' to='/movies'>Фильмы</Link>
-          <Link onClick={clearStateSearch} className='header__navigation-button' to='/saved-movies'>Сохранённые фильмы</Link>
+          <Link onClick={goToThePageMovies} className='header__navigation-button' to='/movies'>Фильмы</Link>
+          <Link onClick={goToThePageSavedMovies} className='header__navigation-button' to='/saved-movies'>Сохранённые фильмы</Link>
         </div>
         <Link className='header__profile' to='/profile'>Аккаунт</Link>
         <button onClick={handleOpenBurger} className='header__burger'></button>
