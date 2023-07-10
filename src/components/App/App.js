@@ -19,6 +19,7 @@ import Login from '../Login/Login';
 import Error from '../Error/Error';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Main from '../Main/Main';
+import Preloader from '../Preloader/Preloader';
 import apiMain from '../../utils/MainApi';
 import api from '../../utils/MoviesApi';
 
@@ -57,7 +58,7 @@ import api from '../../utils/MoviesApi';
 
 function App() {
   const navigate = useNavigate();
-
+  const [preloader, setPreloader] = useState(false);
   const [isOn, setIsOn] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setUserInfo] = useState({});
@@ -112,11 +113,14 @@ function App() {
   useEffect(() => {
     api.getFilm()
       .then((res) => {
+        setPreloader(true)
         let allFilms = res;
         getFilms(allFilms);
       }).catch((err) => {
         alert(err.message);
-      });
+      }).finally(() => {
+        setPreloader(false)
+      })
   }, [])
 
   // Save movies
@@ -124,11 +128,14 @@ function App() {
     const jwt = localStorage.getItem('jwt');
     apiMain.getSavedFilm(jwt)
       .then((res) => {
+        setPreloader(true)
         let allFilms = res;
         getSaveFilms(allFilms);
       }).catch((err) => {
-        alert(err);
-      });
+        alert(err)
+      }).finally(() => {
+        setPreloader(false)
+      })
   }, []);
 
   //Movies
@@ -243,57 +250,66 @@ function App() {
       <div className='app'>
         <Routes>
           <Route path='/' element={<>
-            <Header
-              loggedIn={loggedIn} />
-            <Main>
-              <Promo />
-              <AboutProject />
-              <Techs />
-              <AboutMe />
-              <Portfolio />
-            </Main>
-            <Footer />
+            <Preloader
+              preloader={preloader}>
+              <Header
+                loggedIn={loggedIn} />
+              <Main>
+                <Promo />
+                <AboutProject />
+                <Techs />
+                <AboutMe />
+                <Portfolio />
+              </Main>
+              <Footer />
+            </Preloader>
           </>} />
           <Route path='/movies' element={<>
-            <Header
-              getIsComponentSaveFilms={getIsComponentSaveFilms}
-              getSearchFilms={getSearchFilms}
-              handleOpenBurger={handleOpenBurger}
-              loggedIn={loggedIn} />
-            <Main>
-              <Movies
-                getIsComponentSaveFilms={getIsComponentSaveFilms}
-                handleShowMorePosts={handleShowMorePosts}
-                getSerchFilm={getSerchFilm}
-                searchFilms={searchFilms}
-                moreButton={moreButton}
-                isOn={isOn}
-                handleToggle={includeShortFilms}
-              />
-            </Main>
-            <Footer />
-          </>} />
-          <Route
-            path='/saved-movies'
-            element={<>
+            <Preloader
+              preloader={preloader}>
               <Header
                 getIsComponentSaveFilms={getIsComponentSaveFilms}
                 getSearchFilms={getSearchFilms}
                 handleOpenBurger={handleOpenBurger}
                 loggedIn={loggedIn} />
               <Main>
-                <SavedMovies
+                <Movies
                   getIsComponentSaveFilms={getIsComponentSaveFilms}
+                  handleShowMorePosts={handleShowMorePosts}
                   getSerchFilm={getSerchFilm}
                   searchFilms={searchFilms}
                   moreButton={moreButton}
-                  handleShowMorePosts={handleShowMorePosts}
                   isOn={isOn}
-                  getSearchFilms={getSearchFilms}
                   handleToggle={includeShortFilms}
                 />
               </Main>
               <Footer />
+            </Preloader>
+          </>} />
+          <Route
+            path='/saved-movies'
+            element={<>
+              <Preloader
+                preloader={preloader}>
+                <Header
+                  getIsComponentSaveFilms={getIsComponentSaveFilms}
+                  getSearchFilms={getSearchFilms}
+                  handleOpenBurger={handleOpenBurger}
+                  loggedIn={loggedIn} />
+                <Main>
+                  <SavedMovies
+                    getIsComponentSaveFilms={getIsComponentSaveFilms}
+                    getSerchFilm={getSerchFilm}
+                    searchFilms={searchFilms}
+                    moreButton={moreButton}
+                    handleShowMorePosts={handleShowMorePosts}
+                    isOn={isOn}
+                    getSearchFilms={getSearchFilms}
+                    handleToggle={includeShortFilms}
+                  />
+                </Main>
+                <Footer />
+              </Preloader>
             </>} />
           <Route path='/profile' element={<>
             <Header

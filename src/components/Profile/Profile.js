@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 function Profile(props) {
 
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState('email');
+  const [name, setName] = useState('name');
 
   function handleSetEmail(e) {
     setEmail(e.target.value);

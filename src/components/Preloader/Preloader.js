@@ -1,36 +1,14 @@
 import './Preloader.css';
 
-function Preloader() {
+function Preloader({ children = [] }, props) {
   return (
-    <div class="preloader">
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
+    <>
+      <div className={props.preloader ? 'preloader preloader_open': 'preloader' }>
+        <div class="preloader__element">
+        </div>
+      </div>
+      {children}
+    </>
   )
 }
 
