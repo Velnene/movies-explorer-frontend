@@ -23,39 +23,6 @@ import Preloader from '../Preloader/Preloader';
 import apiMain from '../../utils/MainApi';
 import api from '../../utils/MoviesApi';
 
-
-// TODO 1. Preloader 2 Хранилище для фильмов
-//3
-// Если в процессе получения и обработки данных происходит ошибка, в окне результатов выводится
-// надпись: «Во время запроса произошла ошибка.Возможно, проблема с соединением или сервер недоступен.
-// Подождите немного и попробуйте ещё раз».
-
-//4 Это событие можно отслеживать с помощью слушателя "resize".
-//  Чтобы колбэк - функция слушателя не срабатывала слишком часто, например,
-//   при изменении ширины экрана в отладчике, мы рекомендуем установить setTimeout на вызов этой функции
-//    внутри слушателя "resize".
-
-
-//5 Если одно из полей не заполнено или не прошло валидацию,
-// кнопка «Зарегистрироваться» должна быть неактивна.Неактивная кнопка имеет другой цвет,
-//   и по ней невозможно кликнуть.
-
-// 6 Если данные введены корректно и отличаются от изначальных — кнопка
-// «Редактировать» станет активна и пользователь сможет кликнуть по ней.
-// Пользователя нужно уведомить о результате запроса к серверу.
-
-
-//7 При клике на кнопку «Выйти из аккаунта» происходит редирект на главную страницу
-//  и удаление JWT из локального хранилища или куки.Чтобы войти на сайт заново,
-//   пользователю потребуется повторно авторизоваться.
-
-// 8 Если неавторизованный пользователь по прямой ссылке попытается попасть на страницу 
-// «Сохранённые фильмы», «Фильмы», «Аккаунт» — должен произойти редирект на главную страницу.
-// Для этого используйте HOC - компонент ProtectedRoute.
-
-
-
-
 function App() {
   const navigate = useNavigate();
   const [preloader, setPreloader] = useState(false);
@@ -114,6 +81,7 @@ function App() {
     api.getFilm()
       .then((res) => {
         setPreloader(true)
+        localStorage.setItem('arrayFilms', JSON.stringify(res))
         let allFilms = res;
         getFilms(allFilms);
       }).catch((err) => {
@@ -139,7 +107,7 @@ function App() {
   }, []);
 
   //Movies
-  function getSerchFilm(word) {
+  function handleSerchFilm(word) {
     if (word === '') {
       return
     }
@@ -201,7 +169,8 @@ function App() {
         navigate('/signin');
       })
       .catch((res) => {
-        alert(res);
+        alert('5');
+        console.log(res)
       })
   }
 
@@ -236,13 +205,20 @@ function App() {
     navigate('/signin');
   }
 
-
   // Короткометражки
-
-
   function includeShortFilms() {
     setIsOn(!isOn);
     localStorage.setItem('shortFilms', isOn)
+  }
+
+  // Переход по страницам 
+  function goToThePageSavedMovies() {
+    getSearchFilms([]);
+    getIsComponentSaveFilms(true);
+  }
+  function goToThePageMovies() {
+    getSearchFilms([]);
+    getIsComponentSaveFilms(false);
   }
 
   return (
@@ -268,15 +244,14 @@ function App() {
             <Preloader
               preloader={preloader}>
               <Header
-                getIsComponentSaveFilms={getIsComponentSaveFilms}
-                getSearchFilms={getSearchFilms}
+                goToThePageSavedMovies={goToThePageSavedMovies}
+                goToThePageMovies={goToThePageMovies}
                 handleOpenBurger={handleOpenBurger}
                 loggedIn={loggedIn} />
               <Main>
                 <Movies
-                  getIsComponentSaveFilms={getIsComponentSaveFilms}
                   handleShowMorePosts={handleShowMorePosts}
-                  getSerchFilm={getSerchFilm}
+                  getSerchFilm={handleSerchFilm}
                   searchFilms={searchFilms}
                   moreButton={moreButton}
                   isOn={isOn}
@@ -292,14 +267,13 @@ function App() {
               <Preloader
                 preloader={preloader}>
                 <Header
-                  getIsComponentSaveFilms={getIsComponentSaveFilms}
-                  getSearchFilms={getSearchFilms}
+                  goToThePageSavedMovies={goToThePageSavedMovies}
+                  goToThePageMovies={goToThePageMovies}
                   handleOpenBurger={handleOpenBurger}
                   loggedIn={loggedIn} />
                 <Main>
                   <SavedMovies
-                    getIsComponentSaveFilms={getIsComponentSaveFilms}
-                    getSerchFilm={getSerchFilm}
+                    getSerchFilm={handleSerchFilm}
                     searchFilms={searchFilms}
                     moreButton={moreButton}
                     handleShowMorePosts={handleShowMorePosts}

@@ -1,5 +1,6 @@
-import './AboutMe.css'
-import photo from '../../images/pic__photo.png'
+import './AboutMe.css';
+import photo from '../../images/pic__photo.png';
+
 function AboutMe() {
   return (
     <section className='about-me' id='student'>

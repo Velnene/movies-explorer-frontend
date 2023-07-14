@@ -1,18 +1,9 @@
 import './Header.css';
+
 import logo from '../../images/logo.svg'
 import { Link } from 'react-router-dom';
 
-function Header({ loggedIn, handleOpenBurger, getSearchFilms, getIsComponentSaveFilms }) {
-
-  function goToThePageSavedMovies() {
-    getSearchFilms([]);
-    getIsComponentSaveFilms(true);
-  }
-
-  function goToThePageMovies() {
-    getSearchFilms([]);
-    getIsComponentSaveFilms(false);
-  }
+function Header({ loggedIn, handleOpenBurger, goToThePageSavedMovies, goToThePageMovies }) {
 
   return (
     loggedIn ?
